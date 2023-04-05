@@ -83,7 +83,6 @@ public class Task1_7Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        PrintWriter out = response.getWriter();
         String name = request.getParameter("f_name");
         String surname = request.getParameter("f_surname");
         String club = request.getParameter("f_club");
