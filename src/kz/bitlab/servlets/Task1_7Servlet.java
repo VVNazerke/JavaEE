@@ -68,7 +68,6 @@ public class Task1_7Servlet extends HttpServlet {
         out.print("<div>");
         ArrayList<Footballer> footballers = DBManager.getAllFootballers();
         for (Footballer value : footballers) {
-//            out.print("ID: "+value.getId());
             out.print("<h1>" + value.getName() + " " + value.getSurname() + "</h1>");
             out.print("Club: " + value.getClub());
             out.print("<br>");
