@@ -22,7 +22,7 @@ public class Task1_7Servlet extends HttpServlet {
         out.print("<title>Task1-7</title>");
         out.print("</head>");
         out.print("<body>");
-        out.print("<form action='/home' method='post'>");
+        out.print("<form action='/task1_7' method='post'>");
 
         out.print("<table cellpadding = '20px'>");
         out.print("<tbody>");

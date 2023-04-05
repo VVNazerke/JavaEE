@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(value = "/task1-6")
+@WebServlet(value = "/task1_6")
 public class Task1_6Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -20,7 +20,7 @@ public class Task1_6Servlet extends HttpServlet {
         out.print("</head>");
         out.print("<body>");
         out.print("<form action='/task1_6' method='post'>");
-        out.print("<table>");
+        out.print("<table cellpadding = '20px'>");
         out.print("<tbody>");
 
         out.print("<tr>");
@@ -40,4 +40,26 @@ public class Task1_6Servlet extends HttpServlet {
         out.print("</body>");
         out.print("</html>");
     }
+
+    @Override
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp)
+            throws ServletException, IOException {
+        PrintWriter out = resp.getWriter();
+        String fullName = req.getParameter("full_name");
+        int points = Integer.parseInt(req.getParameter("exam_points"));
+        String result = "F";
+        if (points >= 90) {
+            result = "A";
+        } else if (points >= 75) {
+            result = "B";
+        } else if (points >= 60) {
+            result = "C";
+        } else if (points >= 50) {
+            result = "D";
+        }
+
+        out.print("<h1>"+fullName + " got " + result + " for exam!" +"</h1>");
+    }
+
+
 }
