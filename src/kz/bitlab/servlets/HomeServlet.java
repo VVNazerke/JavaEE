@@ -1,5 +1,7 @@
 package kz.bitlab.servlets;
 
+import Model.DBManager;
+import Model.Item;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -17,9 +19,20 @@ import java.util.ArrayList;
 public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        PrintWriter out = response.getWriter();
-        out.print("<a href='/task1_6'>Task1-6</a>");
-        out.print("<br>");
-        out.print("<a href='/task1_7'>Task1-7</a>");
+        ArrayList<Item> items = DBManager.getAllItems();
+        request.setAttribute("phones", items);
+        request.getRequestDispatcher("/home.jsp").forward(request,response);
+
     }
+
+
+
+
+
+    //    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+//        PrintWriter out = response.getWriter();
+//        out.print("<a href='/task1_6'>Task1-6</a>");
+//        out.print("<br>");
+//        out.print("<a href='/task1_7'>Task1-7</a>");
+//    }
 }
